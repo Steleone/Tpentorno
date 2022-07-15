@@ -1,4 +1,6 @@
-text=$1
+#!/usr/bin/env bash
+
+toutext=$1
 echo "Ingrese Opcion"
 PS3='Please enter your choice: '
 options=("StatWords" "StatsUsageWords" "Option 3" "Quit")
