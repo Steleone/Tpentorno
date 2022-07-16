@@ -1,4 +1,4 @@
-text=$1
+text=texto.txt
 path="./ejercicios"
 echo "Ingrese Opcion"
 PS3='Please enter your choice: '
