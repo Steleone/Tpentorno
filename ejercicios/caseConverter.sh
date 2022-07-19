@@ -1,3 +1,7 @@
+#! /bin/bash
+
+[ -d $1 ] && echo "no existe el archivo" && exit 1
+
 text=""
 for word in $(<$1)
 do
