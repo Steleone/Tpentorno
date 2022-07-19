@@ -2,26 +2,21 @@
 
 [ -d $1 ] && echo "no existe el archivo" && exit 1
 
-while read line
+text=""
+for word in $(<$1)
 do
-  for word in $line
-  do
+    wordu="${word^^}"
+    wordl="${word,,}"
+    wordt=""
     for i in $(seq 0 ${#word})
     do
-      l=${word:i:1}
-      upperl=${l^}
-      lowerl=${l,}
-      if [ $l = $upperl ]
-      then
-        echo "$lowerl" 
+      if [ ! -z "${word:$i:1}" -a "${word:$i:1}" != " " ] && [[ "${word:$i:1}" =~ ^[a-zA-Z]+$ ]]; then
+        [ ${word:$i:1} == ${wordu:$i:1} ] && wordt="$wordt${wordl:$i:1}"
+        [ ${word:$i:1} == ${wordl:$i:1} ] && wordt="$wordt${wordu:$i:1}"
       else
-        echo "$upperl" 
+        wordt="$wordt${word:$i:1}"
       fi
     done
-  done
-done < $1
-
-exit 0
-#Falta hacer que devuelva parrafos completos, no letra por letra.
-#¿Cómo voy agregando las letras a un archivo que respete eso?
-#Trabajar línea por línea, en el primer "do"
+    text="$text $wordt"
+done
+echo "$text"
