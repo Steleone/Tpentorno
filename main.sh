@@ -1,7 +1,7 @@
+#!/USR/BIN/ENV BASH
 text=texto.txt
 path="./ejercicios"
 echo "Ingrese Opcion"
-PS3='Please enter your choice: '
 options=("Stats words" "Stats usage words" "Find names" 
 "Stats sentences" "Blank lines counter" "Case converter" 
 "Substring replace" "Block selection" "Palindrome detection" 
@@ -59,3 +59,4 @@ do
         *) echo "invalid option $REPLY";;
     esac
 done
+

@@ -10,3 +10,5 @@ do
 done < $filename
 
 echo "Existen $count líneas en blanco en el archivo"
+
+exit 0

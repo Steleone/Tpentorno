@@ -1,5 +1,5 @@
 FROM bash:4.4
 
-COPY main.sh /
+COPY . .
 
 CMD ["bash", "/main.sh"]
