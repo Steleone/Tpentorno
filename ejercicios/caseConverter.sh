@@ -1,6 +1,7 @@
-#! /bin/bash
+#!/USR/BIN/ENV BASH
 
-[ -d $1 ] && echo "no existe el archivo" && exit 1
+filename=$1
+[ -d $filename ] && echo "no existe el archivo" && exit 1
 
 text=""
 for word in $(<$1)
