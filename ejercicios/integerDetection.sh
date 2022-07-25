@@ -11,5 +11,4 @@ while read line
         [[ "$i" =~ ^[0-9]+$ ]] && nums+=($i)
       done
 done < $1
-# TODO falta contar numero de apariciones
-printf "%s\n" "${nums[@]}" | sort -n
+printf "%s\n" "${nums[@]}" | sort -n -u

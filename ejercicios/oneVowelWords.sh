@@ -8,6 +8,8 @@ while read line
   do
     for i in $line
       do
+        len=${#i}
+        [ $len -lt 3 ] && continue
         vars=()
         check=0
         cA=$(echo $i | grep -o -i "[aA]" | wc --lines)
