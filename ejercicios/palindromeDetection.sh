@@ -1,5 +1,3 @@
-#!/USR/BIN/ENV BASH
-
 filename=$1
 [ -d $filename ] && echo "no existe el archivo" && exit 1
 
@@ -15,8 +13,11 @@ while read line
         do 
         	reverse="$reverse${input:$i:1}"
         done
-        [ $input == $reverse ] &&  list+=($input)
+        [ $input == $reverse ] && [ $len -gt 1 ] && list+=($input)
       done
 done < $1
-printf "[%s]\n" "${list[@]}"
+
+IFS=$'\n' sorted=($(sort <<<"${list[*]}" | uniq )); unset IFS
+
+printf "[%s]\n" "${sorted[@]}"
 exit 0

@@ -11,7 +11,7 @@ options=("Stats words" "Stats usage words" "Find names"
 select opt in "${options[@]}"
 do
     case $opt in
-         "Stats words")
+        "Stats words")
             $path/statWords.sh $text
             ;;
         "Stats usage words")
@@ -54,7 +54,7 @@ do
             $path/integerDetection.sh $text
             ;;
         "Quit")
-            break
+            exit 0
             ;;
         *) echo "invalid option $REPLY";;
     esac

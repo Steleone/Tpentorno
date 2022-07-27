@@ -1,5 +1,3 @@
-#!/USR/BIN/ENV BASH
-
 filename=$1
 [ -d $filename ] && echo "no existe el archivo" && exit 1
 
@@ -20,7 +18,7 @@ do
     done
 done < $filename
 
-echo "Palabra Larga: $pallong   longitud: ${#pallong}"
-echo "Palabra Corta: $palshort   longitud: ${#palshort}"
-echo "Total Palabras: $count   Total longitud: $totallong   Promedio: $(($totallong/count))"
+echo "Palabra más larga: $pallong - longitud: ${#pallong}"
+echo "Palabra más corta: $palshort - longitud: ${#palshort}"
+echo "Total Palabras: $count - Total longitud: $totallong - Promedio: $(($totallong/count))"
 exit 0

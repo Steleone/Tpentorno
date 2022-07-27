@@ -1,5 +1,3 @@
-#!/USR/BIN/ENV BASH
-
 filename=$1
 [ -d $filename ] && echo "no existe el archivo" && exit 1
 
@@ -9,7 +7,7 @@ while read line
     for i in $line
       do
         len=${#i}
-        [ $len -lt 3 ] && continue
+        [ $len -lt 4 ] && continue
         vars=()
         check=0
         cA=$(echo $i | grep -o -i "[aA]" | wc --lines)
@@ -27,6 +25,6 @@ while read line
 done < $1
 IFS=$'\n' sorted=($(sort <<<"${words[*]}"))
 unset IFS
-sorted=( "${sorted[@],,}" )
+sorted=( "${sorted[@]}" )
 sorted=($(echo "${sorted[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
 printf "[%s]\n" "${sorted[@]}"

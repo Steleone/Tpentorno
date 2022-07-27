@@ -1,5 +1,3 @@
-#!/USR/BIN/ENV BASH
-
 filename=$1
 [ -d $filename ] && echo "no existe el archivo" && exit 1
 
@@ -25,5 +23,5 @@ while read line
 done < $1
 IFS=$'\n' sorted=($(sort <<<"${words[*]}"))
 unset IFS
-printf "[%s]\n" "${sorted[@]}"
+printf "[%s]\n" "${sorted[@]}" 
 #falta contar repeticiones

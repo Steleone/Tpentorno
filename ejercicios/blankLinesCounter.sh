@@ -1,5 +1,3 @@
-#!/USR/BIN/ENV BASH
-
 filename=$1
 
 [ -d $1 ] && echo "no existe el archivo" && exit 1

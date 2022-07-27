@@ -23,6 +23,6 @@ done
 count=0
 for value in "${sorted[@]}"
 do
-  [ $count -le 10 ] && echo $value && count=$(($count+1))
+  [ $count -lt 10 ] && echo $value && count=$(($count+1))
 done
 exit 0
