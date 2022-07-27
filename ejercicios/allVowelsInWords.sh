@@ -21,7 +21,6 @@ while read line
         [ $check -eq 5 ] && words+=($i)
       done
 done < $1
-IFS=$'\n' sorted=($(sort <<<"${words[*]}"))
+IFS=$'\n' sorted=($(sort <<<"${words[*]}" | uniq -c | sort -n ))
 unset IFS
-printf "[%s]\n" "${sorted[@]}" 
-#falta contar repeticiones
+printf "[%s]\n" "${sorted[@]}"
