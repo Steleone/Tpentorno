@@ -12,4 +12,9 @@ done < $1
 IFS=$'\n' sorted=($(sort <<<"${mails[*]}"))
 unset IFS
 sorted=($(echo "${sorted[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
-printf "[%s]\n" "${sorted[@]}"
+if [ ${#sorted} -eq 0 ]
+then
+  echo "No hay direcciones de mail en el archivo"
+else
+  printf "[%s]\n" "${sorted[@]}"
+fi

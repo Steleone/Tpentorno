@@ -8,19 +8,24 @@ while read line
       do
         vars=()
         check=0
-        cA=$(echo $i | grep -o -i "[aA]" | wc --lines)
+        cA=$(echo $i | grep -o -i "[aA]" | wc -l)
         [ $cA -ge 1 ] && check=$(($check+1)) && vars+=("a")
-        cE=$(echo $i | grep -o -i "[eE]" | wc --lines)
+        cE=$(echo $i | grep -o -i "[eE]" | wc -l)
         [ $cE -ge 1 ] && check=$(($check+1)) && vars+=("e")
-        cI=$(echo $i | grep -o -i "[iI]" | wc --lines)
+        cI=$(echo $i | grep -o -i "[iI]" | wc -l)
         [ $cI -ge 1 ] && check=$(($check+1)) && vars+=("i")
-        cO=$(echo $i | grep -o -i "[oO]" | wc --lines)
+        cO=$(echo $i | grep -o -i "[oO]" | wc -l)
         [ $cO -ge 1 ] && check=$(($check+1)) && vars+=("o")
-        cU=$(echo $i | grep -o -i "[uU]" | wc --lines)
+        cU=$(echo $i | grep -o -i "[uU]" | wc -l)
         [ $cU -ge 1 ] && check=$(($check+1)) && vars+=("u")
         [ $check -eq 5 ] && words+=($i)
       done
 done < $1
 IFS=$'\n' sorted=($(sort <<<"${words[*]}" | uniq -c | sort -n ))
 unset IFS
-printf "[%s]\n" "${sorted[@]}"
+if [ ${#words} -eq 0 ]
+then
+  echo "No hay palabras que contengan todas las vocales"
+else
+  printf "[%s]\n" "${sorted[@]}"
+fi
