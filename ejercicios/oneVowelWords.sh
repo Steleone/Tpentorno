@@ -7,6 +7,7 @@ while read line
     for i in $line
       do
         len=${#i}
+        i=${i//[^[:alpha:]]/}
         [ $len -lt 4 ] && continue
         vars=()
         check=0
@@ -25,6 +26,5 @@ while read line
 done < $1
 IFS=$'\n' sorted=($(sort <<<"${words[*]}"))
 unset IFS
-sorted=( "${sorted[@]}" )
 sorted=($(echo "${sorted[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
 printf "[%s]\n" "${sorted[@]}"
